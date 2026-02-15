@@ -30,12 +30,7 @@ app.use("/api/dashboard", dashboardRoutes);
 
 
 
-// app.get("/api/protected", authenticateToken, (req, res) => {
-//   res.json({
-//     message: "You are authorized",
-//     userId: req.userId,
-//   });
-// });
+
 
 
 const PORT = process.env.PORT || 5000;
