@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { token, logout } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  logout();
+  navigate("/login");
+};
   const navLinkStyle =
     "relative px-2 py-1 hover:text-yellow-400 transition duration-300 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full";
 
@@ -26,7 +33,7 @@ function Navbar() {
             </Link>
 
             <button
-              onClick={logout}
+              onClick={handleLogout}
               className="bg-red-500 px-4 py-1 rounded hover:bg-red-600 transition duration-300"
             >
               Logout
